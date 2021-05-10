@@ -37,18 +37,12 @@ func SortedSquaredArray(array []int) []int {
 			} else {
 				end = middle - 1
 			}
-
 			if len(newArray[start:end]) == 1 {
-				fmt.Println(newArray, val, middle)
 				if  val < newArray[start] {
 					newArray = insert(newArray, start, val)
 					break
 				}
-				if  val > newArray[start] {
-					newArray = insert(newArray, start + 1, val) // end
-					break
-				}
-				if  val < newArray[end] {
+				if  val >= newArray[start] && val <= newArray[end] {
 					newArray = insert(newArray, end, val)
 					break
 				}
@@ -56,7 +50,6 @@ func SortedSquaredArray(array []int) []int {
 					newArray = insert(newArray, end + 1, val)
 					break
 				}
-
 			}
 		}
 	}
