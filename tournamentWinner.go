@@ -34,7 +34,7 @@ func TournamentWinner(competitions [][]string, results []int) string {
 			winTeam = pair[0]
 		}
 		board[winTeam] += 3
-		if board[winTeam] > board[bestTeam] {
+		if len(bestTeam) == 0 || board[winTeam] > board[bestTeam] {
 			bestTeam = winTeam
 		}
 	}
