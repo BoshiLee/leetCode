@@ -8,9 +8,9 @@ func main() {
 
 func SortedSquaredArray(array []int) []int {
 	var newArray []int
-	for i:=0 ; i<len(array); i += 1 {
+	for i := 0; i < len(array); i += 1 {
 		val := array[i] * array[i]
-		if len(newArray) == 0  {
+		if len(newArray) == 0 {
 			newArray = append([]int{val}, newArray...)
 			continue
 		}
@@ -18,7 +18,7 @@ func SortedSquaredArray(array []int) []int {
 			newArray = insert(newArray, 0, val)
 			continue
 		}
-		if val >= newArray[len(newArray) - 1] {
+		if val >= newArray[len(newArray)-1] {
 			newArray = append(newArray, val)
 			continue
 		}
@@ -30,22 +30,22 @@ func SortedSquaredArray(array []int) []int {
 				newArray = insert(newArray, middle, val)
 				break
 			}
-			 if val > newArray[middle] {
+			if val > newArray[middle] {
 				start = middle + 1
 			} else {
 				end = middle - 1
 			}
 			if len(newArray[start:end]) == 1 {
-				if  val < newArray[start] {
+				if val < newArray[start] {
 					newArray = insert(newArray, start, val)
 					break
 				}
-				if  val >= newArray[start] && val <= newArray[end] {
+				if val >= newArray[start] && val <= newArray[end] {
 					newArray = insert(newArray, end, val)
 					break
 				}
 				if val > newArray[end] {
-					newArray = insert(newArray, end + 1, val)
+					newArray = insert(newArray, end+1, val)
 					break
 				}
 			}

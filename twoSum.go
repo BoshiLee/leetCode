@@ -11,7 +11,7 @@ func TwoNumberSum(array []int, target int) []int {
 	for _, num := range array {
 		search := target - num
 		_, ok := seen[search]
-		if (ok) {
+		if ok {
 			return []int{num, seen[search]}
 		}
 		seen[num] = num
