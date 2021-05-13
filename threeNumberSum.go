@@ -1,14 +1,14 @@
 package main
 
 import (
-    "fmt"
-    "sort"
+	"fmt"
+	"sort"
 )
 
 func main() {
-    fmt.Println(ThreeNumberSum([]int{
-        12, 3, 1, 2, -6, 5, -8, 6,
-    }, 0))
+	fmt.Println(ThreeNumberSum([]int{
+		12, 3, 1, 2, -6, 5, -8, 6,
+	}, 0))
 }
 
 //func ThreeNumberSum(array []int, target int) [][]int {
@@ -30,25 +30,25 @@ func main() {
 //    return result
 //}
 func ThreeNumberSum(array []int, target int) [][]int {
-    var result = make([][]int, 0)
-    sort.Ints(array)
-    for i := 0; i< len(array) - 2; i ++ {
-        left := i+1
-        right := len(array) -1
-        for left < right {
-            sum := array[left] + array[i] + array[right]
-            if sum == target {
-                result = append(result, []int{array[i], array[left], array[right]})
-                left += 1
-                right -= 1
-            }
-            if sum < target {
-                left += 1
-            }
-            if sum > target {
-                right -= 1
-            }
-        }
-    }
-    return result
+	var result = make([][]int, 0)
+	sort.Ints(array)
+	for i := 0; i < len(array)-2; i++ {
+		left := i + 1
+		right := len(array) - 1
+		for left < right {
+			sum := array[left] + array[i] + array[right]
+			if sum == target {
+				result = append(result, []int{array[i], array[left], array[right]})
+				left += 1
+				right -= 1
+			}
+			if sum < target {
+				left += 1
+			}
+			if sum > target {
+				right -= 1
+			}
+		}
+	}
+	return result
 }
