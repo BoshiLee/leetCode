@@ -34,7 +34,7 @@ func SpiralTraverse(array [][]int) []int {
 	vertical := true   // true is down false is top
 	horizontal := true // true is right false is left
 	var result []int
-	for i < len(array) * len(array[0]) {
+	for i < len(array)*len(array[0]) {
 		if horizontal {
 			for v := left; v <= right; v++ {
 				result = append(result, array[top][v])
@@ -46,23 +46,23 @@ func SpiralTraverse(array [][]int) []int {
 		} else {
 			for v := right; v >= left; v-- {
 				result = append(result, array[bottom][v])
-                i++
-            }
+				i++
+			}
 			bottom--
 			horizontal = !horizontal
 		}
 		if vertical {
 			for v := top; v <= bottom; v++ {
 				result = append(result, array[v][right])
-                i++
-            }
+				i++
+			}
 			right--
 			vertical = !vertical
 		} else {
 			for v := bottom; v >= top && v >= 0; v-- {
 				result = append(result, array[v][left])
-                i++
-            }
+				i++
+			}
 			left++
 			vertical = !vertical
 		}

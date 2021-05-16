@@ -7,41 +7,37 @@ func main() {
 }
 
 func LongestPeak(array []int) int {
-	increase := true
-	peaks := map[int]int{}
-	previousPeakEnd := 0
-	longestLength := 0
+	tips := map[int]int{}
 	for i, val := range array {
-		if i + 1 < len(array) {
-			increase = val < array[i + 1]
-			currentLength := i - previousPeakEnd + 1
-			if increase {
-				if val > array[i + 1] {
-					_, ok := peaks[longestLength]
-					if ok && currentLength - longestLength > longestLength{
-						peaks[currentLength - longestLength] = i
-					} else {
-						peaks[currentLength] = i
-					}
-					longestLength = currentLength
-					previousPeakEnd = i
-					continue
-				}
-			}
-			if !increase {
-				if val < array[i + 1] {
-					_, ok := peaks[longestLength]
-					if ok && currentLength - longestLength > longestLength{
-						peaks[currentLength - longestLength] = i
-					} else {
-						peaks[currentLength] = i
-					}
-					longestLength = currentLength
-					previousPeakEnd = i
-					continue
-				}
+		if i-1 >= 0 && i+1 < len(array) {
+			pre := array[i-1]
+			next := array[i+1]
+			if pre < val && val > next {
+				tips[val] = i
 			}
 		}
 	}
-	return longestLength
+	longPeak := 0
+	peaks := map[int]int{longPeak: 0}
+	for k, v := range tips {
+		peaks[k] = 1
+		for i := v; i > 0; i-- {
+			if array[i] > array[i-1] {
+				peaks[k] += 1
+			} else {
+				break
+			}
+		}
+		for i := v; i < len(array) && i + 1 < len(array); i++ {
+			if array[i] > array[i+1] {
+				peaks[k] += 1
+			} else {
+				break
+			}
+		}
+		if peaks[k] > peaks[longPeak] {
+			longPeak = k
+		}
+	}
+	return peaks[longPeak]
 }
