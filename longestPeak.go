@@ -22,7 +22,7 @@ func LongestPeak(array []int) int {
 						break
 					}
 				}
-				for i := v; i < len(array) && i + 1 < len(array); i++ {
+				for i := v; i < len(array) && i+1 < len(array); i++ {
 					if array[i] > array[i+1] {
 						peaks[val] += 1
 					} else {
